@@ -44,7 +44,7 @@
       <td><input type="text" name="db_user" size="12"></td>
     </tr>
     <tr>
-      <td><p>Datenbank Passwort</p></td>
+      <td><p> Passwort</p></td>
       <td><input type="password" name="db_pass" size="12"></td>
     </tr>
     <tr>
@@ -56,7 +56,7 @@
       <td><input type="text" name="sitename" size="12"></td>
     </tr>
     <tr>
-      <td><p>Erstellen der Seite</p></td>
+      <td><p>Ersteller der Seite</p></td>
       <td><input type="text" name="autor" size="12"></td>
     </tr>
   </table>
@@ -97,6 +97,14 @@
   mysql_connect($db_host, $db_user, $db_pass) or die ("<H3>Datenbankserver nicht erreichbar</H3>");
   mysql_select_db($db_data);
   echo $db_data;
+  
+    $datei = fopen("config.txt","w+");
+    $datei2 = "config.txt";
+    
+    $schreiben = $db_host."\n".$db_user."\n".$db_pass."\n".$db_data;
+    rewind($datei);
+    fwrite($datei, $schreiben);
+    fclose($datei);
   
     /*$sql[0] = "INSERT INTO informations (infos, inhalt) VALUES (sitename, $sitename)";
     $sql[1] = "INSERT INTO informations (infos, inhalt) VALUES (autor, $autor)";

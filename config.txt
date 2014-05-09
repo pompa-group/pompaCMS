@@ -1,4 +1,4 @@
 localhost
 php2
 1234
-reload
+pompaCMS

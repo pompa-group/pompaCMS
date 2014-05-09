@@ -15,7 +15,7 @@
 ?>
 <html>
 <head>
-<title>Startseite - <?php echo $sitename ?></title>
+<title>Einrichten</title>
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,900' rel='stylesheet' type='text/css'>
@@ -75,18 +75,37 @@
 
 
     echo("creating database!\n");
-    mysql_query("CREATE DATABASE '$db_data'");
+    mysql_query("CREATE DATABASE $db_data");
     mysql_select_db($db_data);
-    mysql_close();
 
-  /*$sql[0] = "CREATE TABLE nutzer (username VARCHAR(50) NOT NULL, email VARCHAR(50),
+//Datenbanken erstellen
+  $sql[0] = "CREATE TABLE nutzer (username VARCHAR(50) NOT NULL, email VARCHAR(50),
   password VARCHAR(50))";
-  $sql[1] = "CREATE TABLE contents (beitragsname VARCHAR(50) NOT NULL, id int, kategorie VARCHAR(50), inhalt text)";
+  $sql[1] = "CREATE TABLE contents (beitragsname VARCHAR(50), id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, kategorie VARCHAR(50), inhalt text)";
   $sql[2] = "CREATE TABLE informations (infos VARCHAR(30) NOT NULL, inhalt text)";
+  $sql[3] = "INSERT INTO informations (infos, inhalt) VALUES ('sitename', '$sitename')";
+  $sql[4] = "INSERT INTO informations (infos, inhalt) VALUES ('autor', '$autor')";
   foreach ($sql as $key => $value) {
   mysql_query($value);
+  echo $value;
+  echo "<br />";
   }
-  mysql_close();*/
+  mysql_close();
+  
+  //Die "informations" Tabelle bestücken ;-)
+  
+  mysql_connect($db_host, $db_user, $db_pass) or die ("<H3>Datenbankserver nicht erreichbar</H3>");
+  mysql_select_db($db_data);
+  echo $db_data;
+  
+    /*$sql[0] = "INSERT INTO informations (infos, inhalt) VALUES (sitename, $sitename)";
+    $sql[1] = "INSERT INTO informations (infos, inhalt) VALUES (autor, $autor)";
+    foreach ($sql as $key => $value) {
+    mysql_query($value);
+    
+    }
+    mysql_close();*/
+    
 } else {
   echo "<h2>Leider konnten wir ihre Anfrage nicht verarbeiten</h2>\n<br />\n<a href='firstrun.php'><p>Versuchen sie es bitte erneut.</p></a>";
 }

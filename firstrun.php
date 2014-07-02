@@ -4,21 +4,13 @@
 
 <?php
 //include("info.php");
-
-
-//Verbindung mit Datenbank
-
-
-
-
-
 ?>
 <html>
 <head>
 <title>Einrichten</title>
 
 <link rel="stylesheet" type="text/css" href="style.css">
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,900' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Raleway:400,300,200,900' rel='stylesheet' type='text/css'>
 
 </head>
 <body>
@@ -72,22 +64,24 @@
     $autor = $_POST['autor'];
     
     mysql_connect($db_host, $db_user, $db_pass) or die ("<H3>Datenbankserver nicht erreichbar</H3>");
-
-
-    echo("creating database!\n");
+    ?>
+  <h2>Erstelle Datenbank</h2>
+  <h3>Das k&ouml;nnte etwas dauern..</h3>
+  Je nach dem wie schnell die Verbindung zum Datenbankserver ist...
+  
+    <?php
     mysql_query("CREATE DATABASE $db_data");
     mysql_select_db($db_data);
 
 //Datenbanken erstellen
-  $sql[0] = "CREATE TABLE nutzer (username VARCHAR(50) NOT NULL, email VARCHAR(50),
-  password VARCHAR(50))";
+  $sql[0] = "CREATE TABLE nutzer (username VARCHAR(50) NOT NULL, email VARCHAR(50), password VARCHAR(50)";
   $sql[1] = "CREATE TABLE contents (beitragsname VARCHAR(50), id int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY, kategorie VARCHAR(50), inhalt text)";
   $sql[2] = "CREATE TABLE informations (infos VARCHAR(30) NOT NULL, inhalt text)";
   $sql[3] = "INSERT INTO informations (infos, inhalt) VALUES ('sitename', '$sitename')";
   $sql[4] = "INSERT INTO informations (infos, inhalt) VALUES ('autor', '$autor')";
   foreach ($sql as $key => $value) {
   mysql_query($value);
-  echo $value;
+  //echo $value;
   echo "<br />";
   }
   mysql_close();
@@ -114,14 +108,25 @@
     }
     mysql_close();*/
     
-} else {
-  echo "<h2>Leider konnten wir ihre Anfrage nicht verarbeiten</h2>\n<br />\n<a href='firstrun.php'><p>Versuchen sie es bitte erneut.</p></a>";
+}
+else {
+  ?>
+<script type="text/javascript">
+    function reload() {
+var url = window.location;
+window.location.href = url;
+    }
+</script>
+  <h2>Leider konnten wir ihre Anfrage nicht verarbeiten</h2><br /><a href="javascript:reload()"><p>Versuchen sie es bitte erneut.</p></a>
+  <?php
 }
 ?>
+  <br />
+  <a id="footer" href="https://johann-schilling.com">Created by Johann Schilling Design</a>
 </div>
 </div>
 
-
+    
 </body>
 </html>
 
@@ -129,19 +134,19 @@
 
 <?php
 
-/*$sql[0] = "CREATE TABLE nutzer (username VARCHAR(50) NOT NULL, email VARCHAR(50),
-password VARCHAR(50))";
-$sql[1] = "CREATE TABLE contents (beitragsname VARCHAR(50) NOT NULL, id int, kategorie VARCHAR(50), inhalt text)";
-$sql[2] = "CREATE TABLE informations (infos VARCHAR(30) NOT NULL, inhalt text)";
-foreach ($sql as $key => $value) {
-mysql_query($value);
+//$sql[0] = "CREATE TABLE nutzer (username VARCHAR(50) NOT NULL, email VARCHAR(50),
+//password VARCHAR(50))";
+//$sql[1] = "CREATE TABLE contents (beitragsname VARCHAR(50) NOT NULL, id int, kategorie VARCHAR(50), inhalt text)";
+//$sql[2] = "CREATE TABLE informations (infos VARCHAR(30) NOT NULL, inhalt text)";
+//foreach ($sql as $key => $value) {
+//mysql_query($value);
 
 
 //Die "informations" Tabelle bestücken ;-)
-$sql[0] = 'INSERT INTO `'.$db_data.'`.`informations` (`infos`, `inhalt`) VALUES (`sitename`, `'.$sitename.'`);';
-$sql[1] = 'INSERT INTO `sync`.`informations` (`infos`, `inhalt`) VALUES (`autor`, `'.$autor.'`);';
-foreach ($sql as $key => $value) {
-mysql_query($value);
-mysql_close();
-}*/
+//$sql[0] = 'INSERT INTO `'.$db_data.'`.`informations` (`infos`, `inhalt`) VALUES (`sitename`, `'.$sitename.'`);';
+//$sql[1] = 'INSERT INTO `sync`.`informations` (`infos`, `inhalt`) VALUES (`autor`, `'.$autor.'`);';
+//foreach ($sql as $key => $value) {
+//mysql_query($value);
+//mysql_close();
+//}
 ?>

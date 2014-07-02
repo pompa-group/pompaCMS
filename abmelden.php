@@ -11,7 +11,7 @@ if (empty($_SESSION["Username"])) {
 	echo "<head>";
 	echo "<title>Erfolgreich Abgemeldet</title>";
 	echo '<link rel="stylesheet" type="text/css" href="style.css">';
-	echo '<link href="http://fonts.googleapis.com/css?family=Raleway:400,300,200,900" rel="stylesheet" type="text/css">';
+	echo '<link href="//fonts.googleapis.com/css?family=Raleway:400,300,200,900" rel="stylesheet" type="text/css">';
 	echo '</head>';
 	echo '<body>';
 	echo '<div id="anmeldefenster">';
@@ -27,7 +27,7 @@ if (empty($_SESSION["Username"])) {
 	<title>Erfolgreich Abgemeldet</title>
 
 	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,900' rel='stylesheet' type='text/css'>
+	<link href='//fonts.googleapis.com/css?family=Raleway:400,300,200,900' rel='stylesheet' type='text/css'>
 
 
 </head>

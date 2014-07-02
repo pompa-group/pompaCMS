@@ -26,7 +26,7 @@ while($row = mysqli_fetch_object($informations_ergebnis))
 <title>Startseite - <?php echo $sitename ?></title>
 
 <link rel="stylesheet" type="text/css" href="style.css">
-<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,200,900' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Raleway:400,300,200,900' rel='stylesheet' type='text/css'>
 
 </head>
 <body>

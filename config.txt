@@ -1,4 +1,4 @@
 localhost
-php2
-1234
-pompaCMS
+hallo
+hallo2
+test1

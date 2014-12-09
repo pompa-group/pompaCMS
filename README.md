@@ -1,6 +1,15 @@
 pompaCMS
 ========
 
+ACHTUNG: DIESES PROJEKT WIRD NICHT WEITERENTWICKELT!
+Aufgrund Zeitmangels und (Zitat): "einer grausamen Codebase" geben wir hiermit bekannt, dieses Projekt zu beenden.
+Eine Löschung von Github ist derzeit nicht vorgesehen.
+
+Vielen Dank für euer Verständnis,
+Felix & Johann
+
+========
+
 Ein kleines, pompöses Content Management System :-)
 
 ========
